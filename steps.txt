@@ -8,3 +8,5 @@ json res.json({message: 'from server'})
 to modify script in package.json
 create "start" under "scripts" and value of
     "nodemon ."
+
+6. to allow client to make request install cors
