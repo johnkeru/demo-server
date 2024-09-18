@@ -1,0 +1,10 @@
+1. npm init -y 
+2. install express
+3. create express app
+4. create a router with response of
+json res.json({message: 'from server'})
+5. install nodemon -D
+
+to modify script in package.json
+create "start" under "scripts" and value of
+    "nodemon ."
