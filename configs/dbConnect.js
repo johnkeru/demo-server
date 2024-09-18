@@ -1,4 +1,4 @@
-export default async () => {
+module.exports = async () => {
     try {
         await require('mongoose')
             .connect(process.env.MONGOURL)
