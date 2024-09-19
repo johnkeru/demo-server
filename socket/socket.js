@@ -13,7 +13,7 @@ module.exports = (server) => {
         })
 
         socket.on('message', (message) => {
-            console.log(message)
+            io.emit('message', message)
         })
     })
     // npm i socket.io (server)
