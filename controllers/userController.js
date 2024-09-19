@@ -33,3 +33,14 @@ exports.currentUser = async (req, res) => {
     if (!user) return res.status(404).json({ message: 'User not found!' })
     res.json({ user })
 }
+
+exports.getAllUsers = async (req, res) => {
+    try {
+        const userId = req.userId
+        const users = await User.find({ _id: { $ne: userId } }).select('-password')
+        res.json({ users })
+    } catch (e) {
+        console.log(e)
+        res.status(500).json({ message: 'Server error' })
+    }
+}

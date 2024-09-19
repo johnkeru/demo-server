@@ -6,10 +6,13 @@ Content-Type: application/json
     "password": "pass"
 }
 ###
-POST http://localhost:5000/login
+POST http://localhost:5000/register
 Content-Type: application/json
 
 {
     "username": "keru",
     "password": "pass"
 }
+###
+GET http://localhost:5000/currentUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmViNmNlOWJhODY1NzY0NGY4MjYxYWQiLCJpYXQiOjE3MjY3MDQ4NzQsImV4cCI6MTcyNjcwODQ3NH0.WHvdX1souDp5DvVmTwSuewXHMLLUCpbBhE53WxyMbzo
