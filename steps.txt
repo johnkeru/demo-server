@@ -7,6 +7,7 @@ npm i express
 ... mongoose
 ... bcrypt
 ... jsonwebtoken
+... socket.io
 
 for dev dependency:
 npm i nodemon -D
