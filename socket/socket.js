@@ -1,4 +1,5 @@
 const { Server } = require('socket.io')
+const Message = require('../models/Message')
 
 module.exports = (server) => {
     // this will listen for client's request for handshake
@@ -12,8 +13,11 @@ module.exports = (server) => {
             socket.join(roomId)
         })
 
-        socket.on('message', (message) => {
-            io.emit('message', message)
+        socket.on('message', async ({ yourId, otherId, message }) => {
+            const newMessage = new Message({ sender: yourId, receiver: otherId, message })
+            await newMessage.save()
+            const roomId = [yourId, otherId].sort().join('_')
+            io.to(roomId).emit('message', newMessage)
         })
     })
     // npm i socket.io (server)
