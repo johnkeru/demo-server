@@ -6,7 +6,12 @@ module.exports = (server) => {
 
     // after the handshake the connection will be trigger
     io.on('connection', (socket) => {
-        console.log('Client connected successfully')
-        console.log(socket)
+        console.log('Connected successfully')
+        socket.on('create-room', ({ yourId, otherId }) => {
+            const roomId = [yourId, otherId].sort().join('_')
+            socket.join(roomId)
+        })
     })
+    // npm i socket.io (server)
+    // npm i socket.io-client (client)
 }
