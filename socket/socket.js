@@ -11,6 +11,10 @@ module.exports = (server) => {
             const roomId = [yourId, otherId].sort().join('_')
             socket.join(roomId)
         })
+
+        socket.on('message', (message) => {
+            console.log(message)
+        })
     })
     // npm i socket.io (server)
     // npm i socket.io-client (client)
