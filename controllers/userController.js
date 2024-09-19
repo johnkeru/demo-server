@@ -26,3 +26,10 @@ exports.register = async (req, res) => {
         res.json({ field: 'username', message: 'Server error' })
     }
 }
+
+exports.currentUser = async (req, res) => {
+    const userId = req.userId
+    const user = await User.findById(userId).select('-password')
+    if (!user) return res.status(404).json({ message: 'User not found!' })
+    res.json({ user })
+}
